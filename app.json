@@ -15,16 +15,40 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera"
+      }
     },
     "android": {
+      "package": "com.dneves369.posedetection",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.CAMERA"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "react-native-vision-camera",
+        {
+          "cameraPermissionText": "$(PRODUCT_NAME) needs access to your Camera.",
+  
+          // optionally, if you want to record audio:
+          "enableMicrophonePermission": true,
+          "microphonePermissionText": "$(PRODUCT_NAME) needs access to your Microphone."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d617f6fe-7550-43e4-bd20-4e8c0d367325"
+      }
     }
   }
 }
